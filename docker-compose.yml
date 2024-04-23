@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  frontend:
+    image: 21bcp137-frontend
+    ports:
+      - "80:80"  # Assuming your frontend runs on port 80
+
+  backend:
+    image: 21bcp137-backend
+    ports:
+      - "3000:3000"  # Assuming your backend runs on port 3000
+    depends_on:
+      - database
+
+  database:
+    image:  21bcp137-datebase
+    environment:
+      - MYSQL_ROOT_PASSWORD=dhruv123
+      - MYSQL_DATABASE=cloudia2
+      - MYSQL_USER=dhruv
+      - MYSQL_PASSWORD=dhruv123
+    ports:
+      - "3307:3307"  # Assuming your database runs on port 3307
